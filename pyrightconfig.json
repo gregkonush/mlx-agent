@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/pyrightconfig.json",
+  "include": ["mlx_dev_agent"],
+  "exclude": [
+    "**/__pycache__",
+    "build",
+    "dist"
+  ],
+  "typeCheckingMode": "basic",
+  "reportMissingImports": true,
+  "pythonVersion": "3.10"
+}

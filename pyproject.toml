@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlx-dev-agent"
+version = "0.1.0"
+description = "Ultra-fast CLI development agent running local LLMs via Apple MLX"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+  { name = "Greg Konush" }
+]
+requires-python = ">=3.10"
+keywords = ["mlx", "ml", "llm", "cli", "offline"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Environment :: Console",
+]
+dependencies = [
+  "typer>=0.12.3",
+  "prompt_toolkit>=3.0.47",
+  "rich>=13.7.1",
+  "tomli>=2.0.1",
+  "mlx-lm>=0.2.1"
+]
+
+[project.urls]
+Homepage = "https://github.com/gregkonush/mlx-agent"
+Repository = "https://github.com/gregkonush/mlx-agent"
+Issues = "https://github.com/gregkonush/mlx-agent/issues"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+  "pytest-asyncio>=0.21",
+  "ruff>=0.4.0",
+  "pyright>=1.1.375"
+]
+
+[project.scripts]
+mlx-agent = "mlx_dev_agent.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mlx_dev_agent*"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "N", "B", "C4"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["mlx_dev_agent"]
